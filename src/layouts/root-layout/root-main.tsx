@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export function RootMain() {
   return (
-    <div className="flex h-full w-full items-center justify-center font-sf-pro text-[2rem] phones:text-[2.4rem]">
+    <main className="flex h-full w-full items-center justify-center font-sf-pro text-[2rem] phones:text-[2.4rem]">
       <div className="grid w-2/3 grid-cols-12 gap-32">
         {/* --- Admin --- */}
         <Link
@@ -50,6 +50,6 @@ export function RootMain() {
           </div>
         </Link>
       </div>
-    </div>
+    </main>
   )
 }

@@ -5,6 +5,7 @@ import loadable from '@loadable/component'
 // ------------------
 
 export const RootLayout = loadable(() => import('@/layouts/root-layout'))
+export const AdminLayout = loadable(() => import('@/layouts/admin-layout'))
 
 // ------------------
 // ----- Pages -----
