@@ -9,7 +9,7 @@ export default function RootLayout() {
     // Simulasi proses loading
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 4000) // Contoh: 2 detik
+    }, 4000) // Contoh: 4 detik
 
     return () => clearTimeout(timer)
   }, [])
