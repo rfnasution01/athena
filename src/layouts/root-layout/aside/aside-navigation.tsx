@@ -1,12 +1,14 @@
-import { AdminNavigation } from '@/libs/dummy/admin-navigation'
 import { convertToSlug } from '@/libs/helpers/format-text'
 import { usePathname } from '@/libs/hooks/usePathname'
+import { NavigationType } from '@/libs/types/navigation-type'
 import { Link } from 'react-router-dom'
 
 export function AsideNavigation({
   aktor,
+  navigation,
 }: {
   aktor: 'admin' | 'siswa' | 'guru'
+  navigation: NavigationType[]
 }) {
   const { secondPathname } = usePathname()
 
@@ -20,16 +22,12 @@ export function AsideNavigation({
     return false
   }
 
-  const isAdmin = 'sky'
-  const isGuru = 'fuchsia'
-  const isMurid = 'lime'
-
-  const isActive = `border-${aktor === 'admin' ? isAdmin : aktor === 'guru' ? isGuru : isMurid}-500 bg-${aktor === 'admin' ? isAdmin : aktor === 'guru' ? isGuru : isMurid}-300 bg-opacity-10`
-  const isNotActive = `border-transparent hover:border-${aktor === 'admin' ? isAdmin : aktor === 'guru' ? isGuru : isMurid}-500 hover:bg-${aktor === 'admin' ? isAdmin : aktor === 'guru' ? isGuru : isMurid}-300 hover:bg-opacity-10`
+  const isActive = `${aktor === 'admin' ? 'border-sky-500' : aktor === 'guru' ? 'border-fuchsia-500' : 'border-lime-500'} ${aktor === 'admin' ? 'text-sky-700' : aktor === 'guru' ? 'text-fuchsia-700' : 'text-lime-700'} ${aktor === 'admin' ? 'bg-sky-300' : aktor === 'guru' ? 'bg-fuchsia-300' : 'bg-lime-300'} bg-opacity-10`
+  const isNotActive = `border-transparent ${aktor === 'admin' ? 'hover:text-sky-700' : aktor === 'guru' ? 'hover:text-fuchsia-700' : 'hover:text-lime-700'} ${aktor === 'admin' ? 'hover:border-sky-500' : aktor === 'guru' ? 'hover:border-fuchsia-500' : 'hover:border-lime-500'} ${aktor === 'admin' ? 'hover:bg-sky-300' : aktor === 'guru' ? 'hover:bg-fuchsia-300' : 'hover:bg-lime-300'} hover:bg-opacity-10`
 
   return (
-    <div className="flex flex-1 flex-col gap-y-16">
-      {AdminNavigation.map((item, idx) => (
+    <header className="flex flex-1 flex-col gap-y-16">
+      {navigation.map((item, idx) => (
         <Link
           to={`${item?.title === 'Beranda' ? `/${aktor}` : `/${aktor}/${convertToSlug(item?.title)}`}`}
           className={`flex items-center gap-16 border-l-2 p-12 hover:cursor-pointer ${
@@ -41,6 +39,6 @@ export function AsideNavigation({
           <p>{item?.title}</p>
         </Link>
       ))}
-    </div>
+    </header>
   )
 }

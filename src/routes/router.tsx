@@ -1,5 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { AdminLayout, ComingSoonPage, RootLayout } from './loadables'
+import {
+  AdminLayout,
+  ComingSoonPage,
+  GuruLayout,
+  RootLayout,
+  SiswaLayout,
+} from './loadables'
 
 export const router = createBrowserRouter([
   {
@@ -9,6 +15,14 @@ export const router = createBrowserRouter([
   {
     path: '/admin',
     element: <AdminLayout />,
+  },
+  {
+    path: '/guru',
+    element: <GuruLayout />,
+  },
+  {
+    path: '/siswa',
+    element: <SiswaLayout />,
   },
   {
     path: '*',
