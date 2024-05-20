@@ -3,6 +3,7 @@ import { AsideLogo, AsideNavigation } from '../root-layout/aside'
 import { capitalizeFirstLetterFromLowercase } from '@/libs/helpers/format-text'
 import { Outlet } from 'react-router-dom'
 import { NavigationType } from '@/libs/types/navigation-type'
+import { BreadCrumb } from '@/components/breadcrumb'
 
 export default function MainLayout({
   navigation,
@@ -26,7 +27,8 @@ export default function MainLayout({
           </div>
         </div>
         {/* --- Content --- */}
-        <div className="flex flex-1 p-32">
+        <div className="flex flex-1 flex-col gap-32 p-32">
+          <BreadCrumb />
           <Outlet />
         </div>
       </div>

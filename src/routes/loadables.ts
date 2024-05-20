@@ -14,3 +14,4 @@ export const SiswaLayout = loadable(() => import('@/layouts/siswa-layout'))
 // ------------------
 
 export const ComingSoonPage = loadable(() => import('@/pages/coming-soon'))
+export const BerandaPage = loadable(() => import('@/pages/siswa/beranda'))
